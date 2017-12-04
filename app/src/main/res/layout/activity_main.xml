@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.araceliteixeira.b2caccess.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App User"
+        android:id="@+id/main_app_user"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:layout_width="148dp"
+        android:layout_height="0dp"
+        android:hint="email"
+        android:id="@+id/main_email"
+        app:layout_constraintRight_toRightOf="@+id/main_app_user"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_app_user"
+        app:layout_constraintLeft_toLeftOf="@+id/main_app_user" />
+    <EditText
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:id="@+id/main_password"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_email"
+        app:layout_constraintRight_toRightOf="@+id/main_email"
+        app:layout_constraintLeft_toLeftOf="@+id/main_email" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/main_user_login"
+        android:text="User Login"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/main_new_user"
+        app:layout_constraintRight_toRightOf="@+id/main_password"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="110dp"
+        app:layout_constraintLeft_toLeftOf="@+id/main_password"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/main_password" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click to Register"
+        android:id="@+id/main_click_register"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/main_new_user"
+        app:layout_constraintRight_toRightOf="@+id/main_user_login"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="@+id/main_user_login" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/main_new_user"
+        android:text="New User"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/main_click_register"
+        android:layout_marginBottom="152dp"
+        app:layout_constraintLeft_toLeftOf="@+id/main_click_register" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/main_guest_login"
+        android:text="Guest Login"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/main_new_user"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/main_new_user" />
+
+</android.support.constraint.ConstraintLayout>
