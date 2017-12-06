@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button newUser = (Button) findViewById(R.id.main_new_user);
-        userLogin.setOnClickListener(new View.OnClickListener()
+        newUser.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button guestLogin = (Button) findViewById(R.id.main_guest_login);
-        userLogin.setOnClickListener(new View.OnClickListener()
+        guestLogin.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
