@@ -46,7 +46,6 @@ public class NewUser extends AppCompatActivity {
 
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(NewUser.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
-                    finish();
                 } else {
                     User user = new User();
                     user.setEmail(email);

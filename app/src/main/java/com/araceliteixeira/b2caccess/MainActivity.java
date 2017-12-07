@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
                 String password = ((EditText) findViewById(R.id.main_password)).getText().toString();
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
-                    finish();
                 } else {
                     User user = new User();
                     user.setEmail(email);
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intentGotoView);
                     } else {
                         Toast.makeText(MainActivity.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
-                        finish();
                     }
                 }
             }

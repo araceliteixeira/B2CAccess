@@ -7,20 +7,19 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Base.Theme.AppCompat">
         <activity
-            android:description=".MainActivity"
+            android:name=".MainActivity"
             android:label="B2C ACCESS">
             <intent-filter>
-                <action android:description="android.intent.action.MAIN" />
-
-                <category android:description="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:description=".NewUser"
+            android:name=".NewUser"
             android:label="B2C NEW USER" />
-        <activity android:description=".ProductView"></activity>
+        <activity android:name=".ProductView"></activity>
     </application>
 
 </manifest>
