@@ -6,7 +6,7 @@ package com.araceliteixeira.b2caccess.model;
 
 public class Product {
     private long id;
-    private String name;
+    private String description;
     private double price;
     private double discount;
 
@@ -18,12 +18,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getPrice() {

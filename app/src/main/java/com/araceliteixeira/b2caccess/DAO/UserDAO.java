@@ -61,14 +61,4 @@ public class UserDAO extends SQLiteOpenHelper {
         c.close();
         return users;
     }
-
-    public boolean dbSearch(User user) {
-        List<User> users = dbSearch();
-        for (User u: users) {
-            if (user.getEmail().equals(u.getEmail()) && user.getPassword().equals(u.getPassword())) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

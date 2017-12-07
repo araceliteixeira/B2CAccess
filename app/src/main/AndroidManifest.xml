@@ -8,16 +8,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:label="B2C ACCESS">
+        <activity
+            android:description=".MainActivity"
+            android:label="B2C ACCESS">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:description="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:description="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserView" android:label="PRODUCTS WITH DISCOUNT" />
-        <activity android:name=".GuestView" android:label="PRODUCTS WITH NO DISCOUNT" />
-        <activity android:name=".NewUser" android:label="B2C NEW USER" />
+        <activity
+            android:description=".NewUser"
+            android:label="B2C NEW USER" />
+        <activity android:description=".ProductView"></activity>
     </application>
 
 </manifest>

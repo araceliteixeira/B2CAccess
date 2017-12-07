@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                         finish();
 
-                        Intent intentGotoView = new Intent(MainActivity.this, UserView.class);
+                        Intent intentGotoView = new Intent(MainActivity.this, ProductView.class);
                         intentGotoView.putExtra("email", user.getEmail());
                         startActivity(intentGotoView);
                     } else {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
-                Intent intentGotoView = new Intent(MainActivity.this, GuestView.class);
+                Intent intentGotoView = new Intent(MainActivity.this, ProductView.class);
                 startActivity(intentGotoView);
             }
         });
