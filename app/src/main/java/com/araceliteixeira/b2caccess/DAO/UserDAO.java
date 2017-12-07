@@ -4,8 +4,12 @@ import com.araceliteixeira.b2caccess.model.User;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by araceliteixeira on 06/12/17.
@@ -37,5 +41,34 @@ public class UserDAO extends SQLiteOpenHelper {
         userData.put("password", user.getPassword());
 
         db.insert("Users", null, userData);
+    }
+
+    public List<User> dbSearch() {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT * FROM Users;";
+
+        Cursor c = db.rawQuery(sql, null);
+        List<User> users = new ArrayList<>();
+
+        while (c.moveToNext()) {
+            User user = new User();
+            user.setId(c.getLong(c.getColumnIndex("id")));
+            user.setEmail(c.getString(c.getColumnIndex("email")));
+            user.setPassword(c.getString(c.getColumnIndex("password")));
+            users.add(user);
+        }
+        c.close();
+        return users;
+    }
+
+    public boolean dbSearch(User user) {
+        List<User> users = dbSearch();
+        for (User u: users) {
+            if (user.getEmail().equals(u.getEmail()) && user.getPassword().equals(u.getPassword())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

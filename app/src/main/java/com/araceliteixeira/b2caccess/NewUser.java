@@ -13,35 +13,54 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static com.araceliteixeira.b2caccess.R.menu.menu_form;
-
 public class NewUser extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
+
+        Button cancelButton = (Button) findViewById(R.id.new_user_cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentGotoView = new Intent(NewUser.this, MainActivity.class);
+                startActivity(intentGotoView);
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(menu_form, menu);
+        inflater.inflate(R.menu.menu_save, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_form_ok:
-                User user = new User();
-                user.setEmail(((EditText) findViewById(R.id.new_user_email)).getText().toString());
-                user.setPassword(((EditText) findViewById(R.id.new_user_password)).getText().toString());
+            case R.id.menuSave_save:
+                String email = ((EditText) findViewById(R.id.new_user_email)).getText().toString();
+                String password = ((EditText) findViewById(R.id.new_user_password)).getText().toString();
 
-                UserDAO dao = new UserDAO(this);
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(NewUser.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setPassword(password);
 
-                Toast.makeText(NewUser.this, "User " + user.getEmail()  + " saved", Toast.LENGTH_SHORT).show();
-                finish();
+                    UserDAO dao = new UserDAO(this);
+                    dao.dbInsert(user);
+                    dao.close();
+                    Toast.makeText(NewUser.this, "User " + user.getEmail()  + " saved", Toast.LENGTH_SHORT).show();
+                    finish();
+
+                    Intent intentGotoView = new Intent(NewUser.this, MainActivity.class);
+                    startActivity(intentGotoView);
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);

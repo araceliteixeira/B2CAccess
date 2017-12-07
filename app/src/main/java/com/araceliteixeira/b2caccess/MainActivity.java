@@ -5,6 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.araceliteixeira.b2caccess.DAO.UserDAO;
+import com.araceliteixeira.b2caccess.model.User;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +25,38 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
-                Intent intentGotoView = new Intent(MainActivity.this, UserView.class);
-                startActivity(intentGotoView);
+                String email = ((EditText) findViewById(R.id.main_email)).getText().toString();
+                String password = ((EditText) findViewById(R.id.main_password)).getText().toString();
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setPassword(password);
+
+                    UserDAO dao = new UserDAO(MainActivity.this);
+                    List<User> users = dao.dbSearch();
+                    dao.close();
+
+                    boolean login = false;
+                    for (User u: users) {
+                        if (user.getEmail().equals(u.getEmail()) && user.getPassword().equals(u.getPassword())) {
+                            login = true;
+                        }
+                    }
+                    if (login) {
+                        Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                        finish();
+
+                        Intent intentGotoView = new Intent(MainActivity.this, UserView.class);
+                        intentGotoView.putExtra("email", user.getEmail());
+                        startActivity(intentGotoView);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }
             }
         });
 
