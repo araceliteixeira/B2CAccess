@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UserDAO extends SQLiteOpenHelper {
     public UserDAO(Context context) {
-        super(context, "c0712150test1", null, 1);
+        super(context, "c0712150test1", null, 2);
     }
 
     @Override

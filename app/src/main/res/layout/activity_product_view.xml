@@ -4,18 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/product_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User" />
+        android:layout_weight="0"
+        android:text="Guest User" />
+
     <ListView
+        android:id="@+id/products_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/products_list"></ListView>
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
     <Button
         android:id="@+id/product_back_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:text="Back to Main Screen" />
+
 </LinearLayout>
