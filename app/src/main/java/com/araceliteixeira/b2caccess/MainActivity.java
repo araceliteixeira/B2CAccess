@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 String email = ((EditText) findViewById(R.id.main_email)).getText().toString();
                 String password = ((EditText) findViewById(R.id.main_password)).getText().toString();
                 if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                 } else {
                     User user = new User();
                     user.setEmail(email);
@@ -38,21 +38,19 @@ public class MainActivity extends AppCompatActivity {
                     List<User> users = dao.dbSearch();
                     dao.close();
 
-                    boolean login = false;
+                    boolean doLogin = false;
                     for (User u: users) {
                         if (user.getEmail().equals(u.getEmail()) && user.getPassword().equals(u.getPassword())) {
-                            login = true;
+                            doLogin = true;
                         }
                     }
-                    if (login) {
+                    if (doLogin) {
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        finish();
-
                         Intent intentGotoView = new Intent(MainActivity.this, ProductView.class);
                         intentGotoView.putExtra("email", user.getEmail());
                         startActivity(intentGotoView);
                     } else {
-                        Toast.makeText(MainActivity.this, "Invalid email or password.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -77,5 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentGotoView);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EditText email = (EditText) findViewById(R.id.main_email);
+        email.setText("");
+        EditText password = (EditText) findViewById(R.id.main_password);
+        password.setText("");
     }
 }

@@ -10,15 +10,17 @@
 
     <TextView
         android:id="@+id/main_app_user"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="App User" />
+        android:text="Registered App User" />
 
     <EditText
         android:id="@+id/main_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="email"
+        android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/main_app_user" />
 
     <EditText
@@ -26,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="password"
+        android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/main_email" />
 
     <Button
@@ -37,6 +40,7 @@
 
     <TextView
         android:id="@+id/main_click_register"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Click to Register"
@@ -49,6 +53,14 @@
         android:layout_height="50dp"
         android:text="New User"
         app:layout_constraintTop_toBottomOf="@+id/main_click_register" />
+
+    <TextView
+        android:id="@+id/main_no_register"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't want to register?"
+        app:layout_constraintBottom_toTopOf="@+id/main_guest_login" />
 
     <Button
         android:id="@+id/main_guest_login"

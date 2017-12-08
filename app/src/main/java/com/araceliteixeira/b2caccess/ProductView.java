@@ -50,7 +50,7 @@ public class ProductView extends AppCompatActivity {
                 if (isRegisteredUser) {
                     price -= price * (products.get(position).getDiscount() / 100.0);
                 }
-                text2.setText("$" + price);
+                text2.setText("Price: $" + price);
                 return view;
             }
         };
