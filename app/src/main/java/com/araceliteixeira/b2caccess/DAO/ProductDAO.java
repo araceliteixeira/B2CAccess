@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ProductDAO extends SQLiteOpenHelper {
     public ProductDAO(Context context) {
-        super(context, "c0712150test1", null, 2);
+        super(context, "c0712150test1p", null, 1);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ProductDAO extends SQLiteOpenHelper {
     public List<Product> dbSearch() {
         SQLiteDatabase db = getReadableDatabase();
 
-        String sql = "SELECT * FROM Products;";
+        String sql = "SELECT * FROM Products";
 
         Cursor c = db.rawQuery(sql, null);
         List<Product> products = new ArrayList<>();
