@@ -21,6 +21,7 @@
         android:layout_height="50dp"
         android:hint="email"
         android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"
         app:layout_constraintTop_toBottomOf="@+id/main_app_user" />
 
     <EditText
@@ -29,6 +30,7 @@
         android:layout_height="50dp"
         android:hint="password"
         android:inputType="textPassword"
+        android:imeOptions="actionDone"
         app:layout_constraintTop_toBottomOf="@+id/main_email" />
 
     <Button

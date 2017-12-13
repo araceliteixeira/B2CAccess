@@ -10,14 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/new_user_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"/>
 
     <Button
         android:id="@+id/new_user_save"

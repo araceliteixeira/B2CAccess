@@ -7,6 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:label="B2C Access"
         android:theme="@style/Base.Theme.AppCompat">
         <activity
             android:name=".MainActivity"
